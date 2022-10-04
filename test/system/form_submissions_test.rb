@@ -32,4 +32,15 @@ class FormSubmissionsTest < ApplicationSystemTestCase
     assert_text "My edit", count: 1
     assert_no_text "My article"
   end
+
+  test "form submissions respect rails conventions" do
+
+    article = Article.create! body: "My article"
+
+    visit edit_article_path(article.id)
+    click_on "Button as DELETE"
+
+    assert_text "Articles"
+    assert_no_text "My article"
+  end
 end

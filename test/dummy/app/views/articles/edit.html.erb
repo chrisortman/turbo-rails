@@ -6,6 +6,7 @@
 
   <button>Submit as PATCH</button>
   <button formmethod="post" formaction="<%= articles_path %>">Submit as POST</button>
+  <%= form.button "Button as DELETE", type: :submit, formmethod: :delete %>
 <% end %>
 
 <%= link_to "Submit as DELETE", article_path(@article.id), data: { turbo_method: :delete } %>
